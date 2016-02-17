@@ -1,0 +1,14 @@
+
+srs:
+  build: ./srs/
+  ports:
+  - "1935:1935"
+  volumes:
+  - "./data:/data"
+
+nginx:
+  build: ./nginx/
+  ports:
+  - "80:80"
+  volumes:
+  - "./data:/data"
