@@ -31,11 +31,11 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/var/app/current/data",
+          "sourceVolume": "/var/local",
           "containerPath": "/data"
         },
         {
-          "sourceVolume": "/var/log/ffmpeg",
+          "sourceVolume": "/var/log",
           "containerPath": "/data/log/ffmpeg"
         }
       ]
@@ -55,7 +55,7 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/var/app/current/data",
+          "sourceVolume": "/var/local",
           "containerPath": "/data",
           "readOnly": true
         },
