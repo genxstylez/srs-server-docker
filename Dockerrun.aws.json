@@ -31,7 +31,7 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/data",
+          "sourceVolume": "/var/app/current/data",
           "containerPath": "/data"
         },
         {
@@ -55,7 +55,7 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/data",
+          "sourceVolume": "/var/app/current/data",
           "containerPath": "/data",
           "readOnly": true
         },
