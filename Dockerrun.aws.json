@@ -1,0 +1,69 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "nginx-config",
+      "host": {
+        "sourcePath": "/var/app/current/nginx/nginx.conf"
+      }
+    },
+    {
+       "name": "srs-config",
+       "host": {
+         "sourcePath": "/var/app/current/srs/srs.conf"
+        }
+     }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "srs",
+      "image": "genxstylez/srs:2.0a3",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        { "hostPort": 1935, "containerPort": 1935 }
+      ],
+      "command": ["mkdir", "-p", "/data/log/ffmpeg", "&&", "srs", "-c", "/etc/srs.conf"],
+      "mountPoints": [
+        {
+          "sourceVolume": "srs-config",
+          "containerPath": "/etc/srs.conf",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "/data",
+          "containerPath": "/data",
+        },
+        {
+          "sourceVolume": "/var/log/ffmpeg",
+          "containerPath": "/data/log/ffmpeg"
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "image": "nginx",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        { "hostPort": 80, "containerPort": 80 }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "nginx-config",
+          "containerPath": "/etc/nginx/nginx.conf",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "/data",
+          "containerPath": "/data",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "awseb-logs-nginx",
+          "containerPath": "/var/log/nginx"
+        }
+      ]
+    }
+  ]
+}
