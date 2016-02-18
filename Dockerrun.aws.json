@@ -24,7 +24,7 @@
        "host": {
          "sourcePath": "/var/log/ffmpeg"
         }
-    },
+    }
   ],
   "containerDefinitions": [
     {
