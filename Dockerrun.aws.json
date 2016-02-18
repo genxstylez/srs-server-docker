@@ -12,6 +12,12 @@
        "host": {
          "sourcePath": "/var/app/current/srs/srs.conf"
         }
+    },
+    {
+       "name": "data-folder",
+       "host": {
+         "sourcePath": "/var/app/current/data"
+        }
      }
   ],
   "containerDefinitions": [
@@ -31,7 +37,7 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/var/local",
+          "sourceVolume": "data-folder",
           "containerPath": "/data"
         },
         {
@@ -55,7 +61,7 @@
           "readOnly": true
         },
         {
-          "sourceVolume": "/var/local",
+          "sourceVolume": "data-folder",
           "containerPath": "/data",
           "readOnly": true
         },
