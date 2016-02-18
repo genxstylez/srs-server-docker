@@ -18,7 +18,13 @@
        "host": {
          "sourcePath": "/var/app/current/data"
         }
-     }
+    },
+    {
+       "name": "ffmpeg-log",
+       "host": {
+         "sourcePath": "/var/log/ffmpeg"
+        }
+    },
   ],
   "containerDefinitions": [
     {
@@ -41,7 +47,7 @@
           "containerPath": "/data"
         },
         {
-          "sourceVolume": "/var/log",
+          "sourceVolume": "ffmpeg-log",
           "containerPath": "/data/log/ffmpeg"
         }
       ]
