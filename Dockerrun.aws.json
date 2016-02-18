@@ -32,7 +32,7 @@
         },
         {
           "sourceVolume": "/data",
-          "containerPath": "/data",
+          "containerPath": "/data"
         },
         {
           "sourceVolume": "/var/log/ffmpeg",
